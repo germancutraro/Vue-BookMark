@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <link rel="stylesheet" href="css/main.css">
+   </head>
+   <body>
+      <div id="app">
+         <header>
+            <nav>
+               <h3>Vue Simple BookMark | <small><a href="https://github.com/germancutraro" target="_blank">germancutraro</a></small></h3>
+            </nav>
+         </header>
+         <main>
+            <h2>Simple BookMark</h2>
+            <hr/>
+            <form id="form">
+               <input type="text" placeholder="Page Name" autofocus="true" v-model="page_name">
+               <input type="text" placeholder="Write a valid url" v-model="page_url" autocorrect="off" autocapitalize="off" spellcheck="false">
+               <p class="btn"><button @click="addPage" type="button">Submit</button></p>
+            </form>
+            <!-- Tables Sucks but is just an example -->
+            <table>
+               <tr>
+                  <td>ID</td>
+                  <td>Name</td>
+                  <td>Url</td>
+                  <td>Created in</td>
+               </tr>
+               <tr v-for="(page, index) in pages">
+                  <td>{{ index + 1 }}</td>
+                  <td>{{page.name }}</td>
+                  <td><a :href="page.url" target="_blank">{{ page.url }}</a></td>
+                  <td>{{ page.date }}</td>
+               </tr>
+            </table>
+         </main>
+      </div>
+      <script src="js/vue.min.js"></script>
+      <script src="js/main.js"></script>
+   </body>
+</html>
